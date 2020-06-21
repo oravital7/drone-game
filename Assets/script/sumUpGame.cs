@@ -9,11 +9,12 @@ public class sumUpGame : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
-    {   
-  
-     
-        scoreT.text="Youer score : "+score.scorep;
-        
+    void Start()
+    {
+        if (score.scorep > score.scoreOther)
+            scoreT.text = "You Win!!! with score: " + score.scorep;
+        else
+            scoreT.text = "You Loose :( with score: " + score.scorep;
+
     }
 }

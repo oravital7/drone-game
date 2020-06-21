@@ -1,7 +1,4 @@
-﻿//using System.Collections;
-//using System.Collections.Generic;
-//using Unity.UNetWeaver;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Networking;
 
 public class movingDrone : NetworkBehaviour
@@ -10,18 +7,23 @@ public class movingDrone : NetworkBehaviour
 
     void Start()
     {
-        drone=GetComponent<Rigidbody>();
-               drone.rotation=Quaternion.Euler(
+        if (!isLocalPlayer)
+        {
+            GameObject.Find("TIME").GetComponent<Countdown>().isGameStarted = true;
+            return;
+        }
+
+        drone = GetComponent<Rigidbody>();
+        drone.rotation=Quaternion.Euler(
             new Vector3(0,-90f,0));
 
-        if (isLocalPlayer)
+        GameObject o = GameObject.Find("Camera");
+        if (o != null)
         {
-            GameObject o = GameObject.Find("Camera");
-            if (o != null)
-            {
-                o.GetComponent<cameraBehaviour>().followThis = drone.transform;
-            }
+            o.GetComponent<cameraBehaviour>().followThis = drone.transform;
         }
+
+        transform.position = new Vector3(556.0f, 56.5f, -1015.0f);
     }
 
     // Update is called once per frame
@@ -29,7 +31,6 @@ public class movingDrone : NetworkBehaviour
     {
          if (!isLocalPlayer)
             return;
-
 
         MovementUpDown();
         MovementForward();
@@ -52,15 +53,15 @@ public class movingDrone : NetworkBehaviour
     public float upForce;
     void MovementUpDown()
     {
-        if(Input.GetKey(KeyCode.I))
+        if (Input.GetKey(KeyCode.I))
         {
-            upForce=128f;
+            upForce=300f;
         }
-        else if(Input.GetKey(KeyCode.K))
+        else if (Input.GetKey(KeyCode.K))
         {
             upForce=-200f;
         }
-          else if(!Input.GetKey(KeyCode.K)&&!Input.GetKey(KeyCode.I))
+          else if (!Input.GetKey(KeyCode.K) && !Input.GetKey(KeyCode.I))
         {
             upForce=98.1f;
         }
@@ -99,9 +100,13 @@ public class movingDrone : NetworkBehaviour
     private float titelamountVel;
     void sides()
     {
-         
           drone.AddRelativeForce(Vector3.right * Input.GetAxis("Horizontal") * sideAmount);
-
     }
 
+    public override void OnStartLocalPlayer()
+    {
+        //GameObject ob = GameObject.Find("Mesh1");
+        //ob.GetComponent<SkinnedMeshRenderer>().material.color = Color.blue;
+      //  GetComponent<SkinnedMeshRenderer>().material.color = Color.blue;
+    }
 }
