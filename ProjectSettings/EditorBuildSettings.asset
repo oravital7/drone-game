@@ -14,9 +14,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/1.5_Circuit_In_Environment.unity
     guid: ee060e6b3273e454bb160dbbf00e74d0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/practice.unity
     guid: b35cc06c591a35d4589321acb2b19eed
+  - enabled: 1
+    path: Assets/Scenes/PracticeS.unity
+    guid: c02376156b597484483a55216196dbd6
   - enabled: 1
     path: Assets/Scenes/end.unity
     guid: 1c242ba326504be44accf2c6c1978fdc

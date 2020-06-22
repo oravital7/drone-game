@@ -4,7 +4,8 @@ using UnityEngine.Networking;
 public class movingDrone : NetworkBehaviour
 {     
     Rigidbody drone;
-
+    // public GameObject bulletP;
+    // public Transform bulletS;
     void Start()
     {
         if (!isLocalPlayer)
@@ -37,7 +38,10 @@ public class movingDrone : NetworkBehaviour
         Rotation();
         sides();
 
-       
+    //    if(Input.GetKeyDown(KeyCode.Space))
+    //    {
+    //        fire();
+    //    }
         drone.AddRelativeForce(Vector3.up * upForce);
         Vector3 vector;
         vector.x=drone.position.x;
@@ -109,4 +113,10 @@ public class movingDrone : NetworkBehaviour
         //ob.GetComponent<SkinnedMeshRenderer>().material.color = Color.blue;
       //  GetComponent<SkinnedMeshRenderer>().material.color = Color.blue;
     }
+    // void fire()
+    // {
+    //     GameObject bullet=(GameObject)Instantiate(bulletP,bulletS.position,bulletS.rotation);
+    //     bullet.GetComponent<Rigidbody>().velocity=bullet.transform.forward*12.0f;
+    //     Destroy(bullet,2);
+    // }
 }

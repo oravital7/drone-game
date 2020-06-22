@@ -13,8 +13,10 @@ public class sumUpGame : MonoBehaviour
     {
         if (score.scorep > score.scoreOther)
             scoreT.text = "You Win!!! with score: " + score.scorep;
-        else
+        else if(score.scoreOther>score.scorep)
             scoreT.text = "You Loose :( with score: " + score.scorep;
+        else
+            scoreT.text = "It's a draw with score: " + score.scorep;
 
     }
 }

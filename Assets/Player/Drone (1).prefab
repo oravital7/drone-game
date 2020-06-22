@@ -1105,7 +1105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1a2176479d25249ad0674dbfcbdaec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shader2: {fileID: 4800000, guid: 6c7abb951162b92468c1e53545471caf, type: 3}
+  bulletP: {fileID: 680756086479610757, guid: 45461c4e25f418246b507e3c8711a694, type: 3}
+  bulletS: {fileID: 5045450951798860204}
   upForce: 0
 --- !u!114 &-1885595771601659232
 MonoBehaviour:
