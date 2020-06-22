@@ -63,14 +63,7 @@ public class score : NetworkBehaviour
         {
             scorep += currentScore;
             scoreT.text = "Score: " + scorep;
-
         }
-        else
-        {
-            scoreOther += currentScore;
-            scoreT.text = "Score: " + scoreOther;
-        }
-
 
     }
 }
